@@ -38,7 +38,10 @@ const useFetch = (url: string) => {
     const fetchData = async () => {
       try {
         if (options) {
-          options.headers = { ...options.headers, Authorization: `Bearer ${token}` };
+          options.headers = {
+            ...options.headers,
+            Authorization: `Bearer ${token}`
+          };
         }
         const res = await axios(url, options);
         setResponse(res.data);
@@ -54,7 +57,7 @@ const useFetch = (url: string) => {
       setIsLoading(false);
     };
     fetchData();
-  }, [isLoading, options, url]);
+  }, [isLoading, options, url, token]);
 
   return { response, error, isLoading, doFetch };
 };
