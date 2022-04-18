@@ -1,7 +1,6 @@
 import { useState, useEffect, useCallback } from 'react';
-import axios, { AxiosError, AxiosRequestHeaders, AxiosResponse, Method } from 'axios';
-import useStore, { accessTokenAtom } from './useStore';
-import useLogout from './useLogout';
+import axios, { AxiosError, AxiosRequestHeaders, Method } from 'axios';
+import { accessTokenAtom } from './useStore';
 import { useAtom } from 'jotai';
 
 type Options = {
@@ -20,8 +19,7 @@ axios.defaults.baseURL = 'http://localhost:4002/';
 //   }
 // });
 
-const useFetch = <R extends any = any>(url: string) => {
-  const logout = useLogout();
+const useFetch = (url: string) => {
   const [response, setResponse] = useState<any | null>(null);
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState<AxiosError | null>(null);
@@ -47,7 +45,7 @@ const useFetch = <R extends any = any>(url: string) => {
       } catch (err: any) {
         if (err) {
           if (err.response.data.errorMessage === 'Invalid Token') {
-            logout();
+            // logout user
           }
           const data = err.response?.data || 'Server error';
           setError(data);
