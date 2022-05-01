@@ -1,16 +1,26 @@
-html,
-body {
-  padding: 0;
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
-    Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+@tailwind base;
+@tailwind components;
+@import '../components/Button/styles.css';
+
+@tailwind utilities;
+
+html {
+  font-size: 16px;
 }
 
-a {
-  color: inherit;
-  text-decoration: none;
+.row-start-start {
+  @apply flex flex-row justify-start items-start;
 }
 
-* {
-  box-sizing: border-box;
+.col-start-start {
+  @apply flex flex-col justify-start items-start;
+}
+
+.input-error-state {
+  border: 1px solid rgb(217, 58, 58);
+}
+
+.input-error-state:focus-visible {
+  outline: none;
+  border: 1px solid rgb(217, 58, 58);
 }

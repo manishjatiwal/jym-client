@@ -1,0 +1,23 @@
+.btn {
+  @apply shadow-sm transition ease-in-out duration-300 rounded leading-snug whitespace-nowrap;
+}
+
+.btn-primary {
+  @apply text-white bg-primary !important;
+}
+
+.btn-outline {
+  @apply bg-transparent text-primary border border-primary border-solid !important;
+}
+
+.btn-small {
+  @apply px-2 py-1 text-xs;
+}
+
+.btn-regular {
+  @apply px-3 py-1.5 text-sm;
+}
+
+.btn-large {
+  @apply px-4 py-2 text-base;
+}
